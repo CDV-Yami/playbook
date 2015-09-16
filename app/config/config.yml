@@ -59,6 +59,8 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
+        types:
+            inputs: Yami\AppBundle\Doctrine\Type\Inputs
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"

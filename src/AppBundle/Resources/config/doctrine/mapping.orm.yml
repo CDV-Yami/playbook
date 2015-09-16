@@ -22,7 +22,8 @@ Yami\SheetFight\Model\Move:
     initialPosition:
       type: string
       length: 10
-    #inputs:
+    inputs:
+      type: inputs
     damage:
       type: smallint
       options:
