@@ -1517,16 +1517,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.21.2",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "ddce1136beb8db29b9cd7dffa8ab518b978c9db3"
+                "reference": "b7fc2469fa009897871fb95b68237286fc54a5ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ddce1136beb8db29b9cd7dffa8ab518b978c9db3",
-                "reference": "ddce1136beb8db29b9cd7dffa8ab518b978c9db3",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/b7fc2469fa009897871fb95b68237286fc54a5ad",
+                "reference": "b7fc2469fa009897871fb95b68237286fc54a5ad",
                 "shasum": ""
             },
             "require": {
@@ -1539,7 +1539,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.21-dev"
+                    "dev-master": "1.22-dev"
                 }
             },
             "autoload": {
@@ -1574,20 +1574,20 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2015-09-09 05:28:51"
+            "time": "2015-09-15 06:50:16"
         },
         {
             "name": "yami/sheet-fight",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CDV-Yami/sheet-fight.git",
-                "reference": "db03a727544d37c587ad1639e5086d4d388f04d3"
+                "reference": "d991329f367c1320cd5c38511e52fbd9ff60cb12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CDV-Yami/sheet-fight/zipball/db03a727544d37c587ad1639e5086d4d388f04d3",
-                "reference": "db03a727544d37c587ad1639e5086d4d388f04d3",
+                "url": "https://api.github.com/repos/CDV-Yami/sheet-fight/zipball/d991329f367c1320cd5c38511e52fbd9ff60cb12",
+                "reference": "d991329f367c1320cd5c38511e52fbd9ff60cb12",
                 "shasum": ""
             },
             "require-dev": {
@@ -1619,7 +1619,7 @@
                 "fighting",
                 "games"
             ],
-            "time": "2015-09-08 22:00:45"
+            "time": "2015-09-16 02:43:21"
         }
     ],
     "packages-dev": [
