@@ -7,7 +7,7 @@ use Doctrine\DBAL\Types\Type as AbstractType;
 use Yami\AppBundle\Entity\Input;
 
 /**
- * Inputs type used to serialize & unserialize a sequence of input
+ * Inputs type used to serialize & unserialize a sequence of input.
  *
  * The input should never contains a "|".
  */
@@ -29,7 +29,7 @@ class Inputs extends AbstractType
     public function convertToDatabaseValue($inputs, AbstractPlatform $platform)
     {
         if (!$inputs || empty($inputs)) {
-            return null;
+            return;
         }
 
         $flat = [];

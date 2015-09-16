@@ -7,7 +7,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Yami\AppBundle\Entity;
 use Yami\SheetFight\Model;
 
-
 class StreetFighter4Data implements FixtureInterface
 {
     public function load(ObjectManager $manager)
