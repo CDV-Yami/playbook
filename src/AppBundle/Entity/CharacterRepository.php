@@ -3,6 +3,7 @@
 namespace Yami\AppBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 
 class CharacterRepository extends EntityRepository
 {
@@ -18,13 +19,26 @@ class CharacterRepository extends EntityRepository
 
     public function findOneWithMoves($name)
     {
-        return $this->createQueryBuilder('c')
-            ->select('c', 'm')
+        $characters = $this->createQueryBuilder('c')
+            ->select('c', 'm', 'f', 'ca', 'caf')
             ->where('c.name = :name')
             ->leftJoin('c.moves', 'm')
+            ->leftJoin('m.frameData', 'f')
+            ->leftJoin('m.cancelAbilities', 'ca')
+            ->leftJoin('ca.frameData', 'caf')
             ->setParameter('name', $name)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->execute()
         ;
+
+        if (empty($characters) || null === $characters) {
+            return null;
+        }
+
+        if (count($characters) > 1) {
+            throw new NonUniqueResultException;
+        }
+
+        return $characters[0];
     }
 }
