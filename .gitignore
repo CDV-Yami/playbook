@@ -10,4 +10,7 @@
 /vendor/
 /web/bundles/
 
+src/AppBundle/Controller/TestController.php
+src/AppBundle/Resources/views/test/
+
 .idea/

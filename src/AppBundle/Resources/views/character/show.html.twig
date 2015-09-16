@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ character.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ character.name }}</h1>
+
+    <dl>
+        <dt>Health</dt>
+        <dd>{{ character.health }}</dd>
+    </dl>
+
+    <table>
+        <thead>
+        <tr>
+            <th>type</th>
+            <th>name</th>
+            <th>position</th>
+            <th>inputs</th>
+            <th>damage</th>
+            <th>meter gain</th>
+            <th>hit level</th>
+            <th>cancel abilities</th>
+            <th>start up</th>
+            <th>active</th>
+            <th>recovery</th>
+            <th>guard advantage</th>
+            <th>hit advantage</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for move in character.moves %}
+            <tr>
+                <td>{{ move.type }}</td>
+                <td>{{ move.name }}</td>
+                <td>{{ move.initialPosition }}</td>
+                <td>{{ move.getInputs(true) }}</td>
+                <td>{{ move.damage }}</td>
+                <td>{{ move.meterGain }}</td>
+                <td>{{ move.hitLevel }}</td>
+                <td>
+                    {% for cancelAbility in move.cancelAbilities %}
+                        {{ cancelAbility.name }},
+                    {% endfor %}
+                </td>
+                <td>{{ move.frameData.startup }}</td>
+                <td>{{ move.frameData.active }}</td>
+                <td>{{ move.frameData.recovery }}</td>
+                <td>{{ move.frameData.guardAdvantage }}</td>
+                <td>{{ move.frameData.hitAdvantage }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+    <footer>
+        <a href="{{ path('characters') }}">Character Select</a>
+    </footer>
+
+{% endblock %}
