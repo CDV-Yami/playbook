@@ -4,7 +4,6 @@ namespace Yami\AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Yami\SheetFight\Model\CharacterInterface;
-use Yami\AppBundle\Entity\FrameData;
 use Yami\SheetFight\Model\FrameDataInterface;
 use Yami\SheetFight\Model\Move as BaseMove;
 
@@ -50,7 +49,6 @@ class Move extends BaseMove
         $this->cancelAbilities = new ArrayCollection($cancelAbilities);
         $this->frameData = new FrameData($this, $startup, $active, $recovery, $guardAdvantage, $hitAdvantage);
         parent::__construct($type, $name, $initialPosition, $inputs, $damage, $meterGain, $hitLevel, $this->cancelAbilities, $this->frameData);
-
     }
 
     /**

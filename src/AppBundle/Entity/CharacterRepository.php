@@ -32,11 +32,11 @@ class CharacterRepository extends EntityRepository
         ;
 
         if (empty($characters) || null === $characters) {
-            return null;
+            return;
         }
 
         if (count($characters) > 1) {
-            throw new NonUniqueResultException;
+            throw new NonUniqueResultException();
         }
 
         return $characters[0];
