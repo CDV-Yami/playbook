@@ -15,4 +15,16 @@ class CharacterRepository extends EntityRepository
             ->execute()
         ;
     }
+
+    public function findOneWithMoves($name)
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c', 'm')
+            ->where('c.name = :name')
+            ->leftJoin('c.moves', 'm')
+            ->setParameter('name', $name)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

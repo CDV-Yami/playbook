@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Character Select{% endblock %}
+
+{% block body %}
+    <h1>Characters</h1>
+
+    <ul>
+        {% for character in characters %}
+            <li>
+                <a href="{{ path('characters_show', {'name': character.name}) }}">{{ character.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
