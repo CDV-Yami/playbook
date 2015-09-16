@@ -1,0 +1,119 @@
+# SheetFight mappings
+Yami\SheetFight\Model\Character:
+  type: mappedSuperclass
+  fields:
+    name:
+      type: string
+      length: 60
+    health:
+      type: smallint
+      options:
+        unsigned: true
+
+Yami\SheetFight\Model\Move:
+  type: mappedSuperclass
+  fields:
+    type:
+      type: string
+      length: 10
+    name:
+      type: string
+      length: 60
+    initialPosition:
+      type: string
+      length: 10
+    #inputs:
+    damage:
+      type: smallint
+      options:
+        unsigned: true
+    meterGain:
+      type: smallint
+    hitLevel:
+      type: string
+      length: 5
+    #cancelAbilities:
+    #frameData:
+
+Yami\SheetFight\Model\FrameData:
+  type: mappedSuperclass
+  fields:
+    startup:
+      type: smallint
+      options:
+        unsigned: true
+    active:
+      type: smallint
+      options:
+        unsigned: true
+    recovery:
+      type: smallint
+      options:
+        unsigned: true
+    guardAdvantage:
+      type: smallint
+    hitAdvantage:
+      type: smallint
+
+# Playbook mappings
+Yami\AppBundle\Entity\Character:
+  type: entity
+  table: characters
+  repositoryClass: Yami\AppBundle\Entity\CharacterRepository
+  id:
+    id:
+      type: integer
+      options:
+        unsigned: true
+      generator: {strategy: AUTO}
+  oneToMany:
+    moves:
+      targetEntity: Yami\AppBundle\Entity\Move
+      mappedBy: character
+
+Yami\AppBundle\Entity\Move:
+  type: entity
+  table: moves
+  id:
+    id:
+      type: integer
+      options:
+        unsigned: true
+      generator: {strategy: AUTO}
+  manyToOne:
+    character:
+      targetEntity: Yami\AppBundle\Entity\Character
+      inversedBy: moves
+  oneToOne:
+    frameData:
+      targetEntity: Yami\AppBundle\Entity\FrameData
+      mappedBy: move
+      cascade: [all]
+  manyToMany:
+    cancelAbilities:
+      targetEntity: Yami\AppBundle\Entity\Move
+      joinTable:
+        name: cancel_abilities
+        joinColumns:
+          move_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          cancel_id:
+            referencedColumnName: id
+
+Yami\AppBundle\Entity\FrameData:
+  type: entity
+  table: framedata
+  id:
+    id:
+      type: integer
+      options:
+        unsigned: true
+      generator: {strategy: AUTO}
+  oneToOne:
+    move:
+      targetEntity: Yami\AppBundle\Entity\Move
+      inversedBy: frameData
+      joinColumn:
+        onDelete: CASCADE
+        onUpdate: CASCADE
