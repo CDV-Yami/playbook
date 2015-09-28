@@ -67,15 +67,19 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: false
         mappings:
-          AppBundle:
-            type: yml
-            is_bundle: true
-          Yami\SheetFight\Model:
-            type: yml
-            dir: "%kernel.root_dir%/../vendor/yami/sheet-fight/src/Yami/SheetFight/Model"
-            prefix: 'Yami\SheetFight\Model'
-            is_bundle: false
-
+            AppBundle:
+                type: yml
+                is_bundle: true
+            Yami\SheetFight\Model:
+                type: yml
+                dir: "%kernel.root_dir%/../vendor/yami/sheet-fight/src/Yami/SheetFight/Model"
+                prefix: 'Yami\SheetFight\Model'
+                is_bundle: false
+            Yami\Playbook\Model:
+                type: yml
+                dir: "%kernel.root_dir%/../src/Playbook/Model"
+                prefix: 'Yami\Playbook\Model'
+                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:

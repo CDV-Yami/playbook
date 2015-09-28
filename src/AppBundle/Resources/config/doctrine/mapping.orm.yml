@@ -56,6 +56,26 @@ Yami\SheetFight\Model\FrameData:
     hitAdvantage:
       type: smallint
 
+Yami\Playbook\Model\Note:
+  type: mappedSuperclass
+  manyToOne:
+    character:
+      targetEntity: Yami\AppBundle\Entity\Character
+      joinColumn:
+        nullable: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+    opponent:
+      targetEntity: Yami\AppBundle\Entity\Character
+      joinColumn:
+        nullable: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
+  fields:
+    details:
+      type: string
+      length: 140
+
 # Playbook mappings
 Yami\AppBundle\Entity\Character:
   type: entity
@@ -85,6 +105,10 @@ Yami\AppBundle\Entity\Move:
     character:
       targetEntity: Yami\AppBundle\Entity\Character
       inversedBy: moves
+      joinColumn:
+        nullable: false
+        onDelete: CASCADE
+        onUpdate: CASCADE
   oneToOne:
     frameData:
       targetEntity: Yami\AppBundle\Entity\FrameData
@@ -116,5 +140,18 @@ Yami\AppBundle\Entity\FrameData:
       targetEntity: Yami\AppBundle\Entity\Move
       inversedBy: frameData
       joinColumn:
+        nullable: false
         onDelete: CASCADE
         onUpdate: CASCADE
+
+Yami\AppBundle\Entity\Note:
+  type: entity
+  table: notes
+  id:
+      id:
+        type: integer
+        options:
+          unsigned: true
+        generator: {strategy: AUTO}
+
+
